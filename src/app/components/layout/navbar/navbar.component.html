@@ -1,0 +1,16 @@
+<nav class="bg-gray-800 text-white p-4 shadow-lg">
+  <div class="container mx-auto flex justify-between items-center">
+    <h3 class="text-xl font-semibold">Controle de Contatos</h3>
+    <div class="relative">
+      <button class="hover:text-gray-300 transition focus:outline-none cursor-pointer" onclick="document.getElementById('dropdown').classList.toggle('hidden')">
+        Menu
+      </button>
+      <ul id="dropdown" class="absolute right-0 mt-2 w-48 bg-gray-800 text-white shadow-lg rounded hidden">
+        <li><a routerLink="/pages/cadastro-contatos" class="block px-4 py-2 hover:bg-gray-700">Cadastrar contatos</a></li>
+        <li><a routerLink="/pages/consulta-contatos" class="block px-4 py-2 hover:bg-gray-700">Consultar contatos</a></li>
+        <li><a routerLink="/pages/edicao-contatos" class="block px-4 py-2 hover:bg-gray-700">Atualizar contatos</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<hr class="border-gray-700">
