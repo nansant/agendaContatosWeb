@@ -1,16 +1,28 @@
-<nav class="bg-gray-500 text-white p-4">
+<nav class="flex justify-between items-center p-4 bg-white dark:bg-gray-900 shadow-md transition-colors duration-300">
   <div class="container mx-auto flex justify-between items-center">
-    <h3 class="text-xl font-semibold">Controle de Contatos</h3>
-    <div class="relative">
-      <button class="hover:text-gray-800 transition focus:outline-none cursor-pointer" onclick="document.getElementById('dropdown').classList.toggle('hidden')">
-        Menu
+    <!-- Logo -->
+    <div class="text-lg font-bold text-black dark:text-white flex items-center">
+      <span>Lista de Contatos</span>
+    </div>
+
+    <!-- Menu Items -->
+    <ul class="flex space-x-6 text-black dark:text-white">
+      <li><a routerLink="/" class="hover:text-gray-500">Home</a></li>
+      <li><a routerLink="/pages/cadastro-contatos" class="hover:text-gray-500">Cadastro</a></li>
+      <li><a routerLink="/pages/consulta-contatos" class="hover:text-gray-500">Consulta</a></li>
+      <li><a routerLink="/pages/edicao-contatos" class="hover:text-gray-500">Edição</a></li>
+    </ul>
+
+    <!-- Theme Toggle Button -->
+    <div class="flex items-center space-x-4">
+      <button (click)="toggleTheme()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+        <span *ngIf="isDarkMode">
+          <img src="img/light.png" class="w-6" alt="">
+        </span>
+        <span *ngIf="!isDarkMode">
+          <img src="img/dark.png" class="w-6" alt="">
+        </span>
       </button>
-      <ul id="dropdown" class="absolute right-0 mt-2 w-48 bg-gray-800 text-white shadow-lg rounded hidden">
-        <li><a routerLink="/pages/cadastro-contatos" class="block px-4 py-2 hover:bg-gray-700">Cadastrar contatos</a></li>
-        <li><a routerLink="/pages/consulta-contatos" class="block px-4 py-2 hover:bg-gray-700">Consultar contatos</a></li>
-        <li><a routerLink="/pages/edicao-contatos" class="block px-4 py-2 hover:bg-gray-700">Atualizar contatos</a></li>
-      </ul>
     </div>
   </div>
 </nav>
-<hr class="border-gray-700">
