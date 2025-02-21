@@ -1,16 +1,15 @@
 <nav class="flex justify-between items-center p-4 bg-white dark:bg-gray-900 shadow-md transition-colors duration-300">
-  <div class="container mx-auto flex justify-between items-center">
+  <div class="container mx-auto flex justify-between items-center relative">
+    
     <!-- Logo -->
     <div class="text-lg font-bold text-black dark:text-white flex items-center">
-      <span>Lista de Contatos</span>
+      <span routerLink="/">Lista de Contatos</span>
     </div>
 
-    <!-- Menu Items -->
-    <ul class="flex space-x-6 text-black dark:text-white">
-      <li><a routerLink="/" class="hover:text-gray-500">Home</a></li>
-      <li><a routerLink="/pages/cadastro-contatos" class="hover:text-gray-500">Cadastro</a></li>
-      <li><a routerLink="/pages/consulta-contatos" class="hover:text-gray-500">Consulta</a></li>
-      <li><a routerLink="/pages/edicao-contatos" class="hover:text-gray-500">Edição</a></li>
+    <!-- Menu Items (Centralizado) -->
+    <ul class="absolute left-1/2 transform -translate-x-1/2 flex gap-4 text-black dark:text-white">
+      <li><a routerLink="/pages/cadastro-contatos" class="hover:text-gray-500 font-bold">Cadastro</a></li>
+      <li><a routerLink="/pages/consulta-contatos" class="hover:text-gray-500 font-bold">Consulta</a></li>
     </ul>
 
     <!-- Theme Toggle Button -->
@@ -24,5 +23,6 @@
         </span>
       </button>
     </div>
+
   </div>
 </nav>

@@ -15,15 +15,16 @@ import {
   styleUrl: './cadastro-contatos.component.css',
 })
 export class CadastroContatosComponent {
+  constructor(private http: HttpClient) {}
+
   form = new FormGroup({
     nome: new FormControl(''),
     telefone: new FormControl(''),
     email: new FormControl(''),
   });
 
-  constructor(private http: HttpClient) {}
-
   resposta: string = '';
+  erros: any = null;
 
   OnSubmit() {
     this.http
@@ -32,10 +33,15 @@ export class CadastroContatosComponent {
       })
       .subscribe({
         next: (data) => {
+          this.erros = null;
+
           this.resposta = data;
+
+          this.form.reset();
         },
         error: (e) => {
-          console.log(e.error);
+          this.resposta = '';
+          this.erros = JSON.parse(e.error);
         },
       });
   }

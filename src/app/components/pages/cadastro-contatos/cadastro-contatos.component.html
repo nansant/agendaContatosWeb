@@ -1,19 +1,37 @@
-<div class="max-w-md mx-auto mt-10 bg-white dark:bg-[#05061a] p-6 rounded-lg shadow-md">
-  <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Cadastrar Contato</h2>
+<div class="max-w-xl mx-auto mt-10 bg-[#f1f1f1] dark:bg-gray-800 p-6 rounded-lg shadow-md">
+  <h2 class="text-2xl font-semibold text-[#353535] dark:text-white mb-4">Cadastrar Contato</h2>
+  <div *ngIf="resposta" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+    <strong class="font-bold block">Sucesso!</strong>
+    <span class="block sm:inline">{{resposta}}</span>
+    <button class="absolute top-0 bottom-0 right-0 px-4 py-3" onclick="this.parentElement.remove();">
+      <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+        <title>Fechar</title>
+        <path d="M14.348 5.652a1 1 0 0 0-1.414 0L10 8.586 7.066 5.652a1 1 0 0 0-1.414 1.414L8.586 10l-2.934 2.934a1 1 0 1 0 1.414 1.414L10 11.414l2.934 2.934a1 1 0 0 0 1.414-1.414L11.414 10l2.934-2.934a1 1 0 0 0 0-1.414z" />
+      </svg>
+    </button>
+  </div>
   <form [formGroup]="form" (ngSubmit)="OnSubmit()" action="#" method="POST">
     <div class="mb-4">
-      <label for="nome" class="block text-gray-700 dark:text-white font-medium">Nome</label>
+      <label for="nome" class="block text-[#353535] dark:text-white font-medium">Nome</label>
       <input formControlName="nome" type="text" id="nome" name="nome" class="w-full px-4 py-2 border rounded-lg dark:border-white focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+      <div *ngIf="erros && erros.nome">
+        <strong class="text-red-600">{{erros.nome}}</strong>
+      </div>
     </div>
     <div class="mb-4">
-      <label for="telefone" class="block text-gray-700 dark:text-white font-medium">Telefone</label>
+      <label for="telefone" class="block text-[#353535] dark:text-white font-medium">Telefone</label>
       <input formControlName="telefone" type="tel" id="telefone" name="telefone" class="w-full px-4 py-2 border dark:border-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+      <div *ngIf="erros && erros.telefone">
+        <strong class="text-red-600">{{erros.telefone}}</strong>
+      </div>
     </div>
     <div class="mb-4">
-      <label for="email" class="block text-gray-700 dark:text-white font-medium">Email</label>
+      <label for="email" class="block text-[#353535] dark:text-white font-medium">Email</label>
       <input formControlName="email" type="email" id="email" name="email" class="w-full px-4 py-2 border dark:border-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+      <div *ngIf="erros && erros.email">
+        <strong class="text-red-600">{{erros.email}}</strong>
+      </div>
     </div>
     <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Cadastrar</button>
-    <p *ngIf="resposta">{{ resposta }}</p>
   </form>
 </div>
